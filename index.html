@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,9 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* --- التصميم والألوان --- */
         :root {
-            --primary-color: #1a5d3a; /* الأخضر الغامق من البوستر */
-            --accent-color: #2ecc71;  /* أخضر فاتح للتمييز */
+            --primary-color: #1a5d3a;
+            --accent-color: #2ecc71;
             --text-color: #333;
             --white: #ffffff;
             --bg-gradient: linear-gradient(135deg, #1a5d3a 0%, #0e3c26 100%);
@@ -37,14 +37,14 @@
         .container {
             background-color: var(--white);
             width: 100%;
-            max-width: 450px; /* عرض مناسب للهاتف */
+            max-width: 450px;
             border-radius: 25px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             position: relative;
         }
 
-        /* الهيدر (رأس الصفحة) */
+        /* الرأس والشعار */
         .header {
             background-color: var(--primary-color);
             padding: 25px 20px;
@@ -55,23 +55,23 @@
         }
 
         .header img {
-            width: 70px;
-            background: white;
+            width: 80px; /* حجم الشعار */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
-            padding: 2px;
+            padding: 5px;
             margin-bottom: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .header h1 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 900;
             color: var(--white);
             margin-bottom: 5px;
         }
 
         .header p {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.9;
             color: #dcdcdc;
         }
@@ -83,11 +83,11 @@
             background: rgba(255,255,255,0.15);
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             backdrop-filter: blur(5px);
         }
 
-        /* محتوى النموذج */
+        /* المحتوى والنموذج */
         .form-content {
             padding: 25px;
         }
@@ -98,7 +98,6 @@
             font-weight: 700;
             margin-bottom: 15px;
             text-align: center;
-            position: relative;
         }
 
         .input-group {
@@ -133,7 +132,7 @@
             font-size: 14px;
             transition: 0.3s;
             outline: none;
-            text-align: right; /* للكتابة بالعربية */
+            text-align: right;
         }
 
         .input-wrapper input:focus {
@@ -141,7 +140,7 @@
             background-color: #f9fdfa;
         }
 
-        /* اختيار الفوج (Radio Buttons Styled as Cards) */
+        /* تنسيق خيارات الفوج */
         .groups-container {
             display: flex;
             flex-direction: column;
@@ -149,8 +148,7 @@
             margin-top: 10px;
         }
 
-Nou Fel, [18/02/2026 04:34]
-.group-option {
+        .group-option {
             position: relative;
         }
 
@@ -172,16 +170,16 @@ Nou Fel, [18/02/2026 04:34]
         }
 
         .group-info h4 {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--primary-color);
             margin-bottom: 2px;
         }
 
         .group-time {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
             font-weight: 600;
-            direction: ltr; /* للأرقام */
+            direction: ltr;
         }
 
         .check-circle {
@@ -201,7 +199,7 @@ Nou Fel, [18/02/2026 04:34]
             display: none;
         }
 
-        /* حالة الاختيار (Checked State) */
+        /* عند اختيار فوج */
         .group-option input:checked + .group-card {
             border-color: var(--primary-color);
             background-color: #f0fdf4;
@@ -225,7 +223,7 @@ Nou Fel, [18/02/2026 04:34]
             border: none;
             padding: 16px;
             border-radius: 15px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             margin-top: 25px;
@@ -237,6 +235,10 @@ Nou Fel, [18/02/2026 04:34]
             gap: 10px;
         }
 
+        .submit-btn:hover {
+            background-color: #14452b;
+        }
+
         .submit-btn:active {
             transform: scale(0.98);
         }
@@ -244,7 +246,7 @@ Nou Fel, [18/02/2026 04:34]
         .footer {
             text-align: center;
             margin-top: 20px;
-            font-size: 12px;
+            font-size: 11px;
             color: #888;
         }
     </style>
@@ -254,7 +256,7 @@ Nou Fel, [18/02/2026 04:34]
     <div class="container">
         <div class="header">
             <div class="ramadan-badge">رمضان 1447هـ</div>
-            <a href="https://ibb.co/Jwt3W2Mr"><img src="https://i.ibb.co/Vc9w0DPM/photo-2026-02-18-01-11-33-removebg-preview.png" alt="photo 2026 02 18 01 11 33 removebg preview" border="0"></a>
+            <img src="https://i.ibb.co/Vc9w0DPM/photo-2026-02-18-01-11-33-removebg-preview.png" alt="أكاديمية ضياء الدين">
             <h1>أكاديمية ضياء الدين الدولية</h1>
             <p>قفزة اللغات | رمضان 2026</p>
         </div>
@@ -262,12 +264,12 @@ Nou Fel, [18/02/2026 04:34]
         <div class="form-content">
             <h3 class="section-title">احجز مكانك الآن</h3>
 
-            <form id="registerForm">
+            <form action="https://formspree.io/f/xwvnqlod" method="POST">
                 
                 <div class="input-group">
                     <label>الاسم الكامل</label>
                     <div class="input-wrapper">
-                        <input type="text" placeholder="اكتب اسمك الثلاثي" required>
+                        <input type="text" name="الاسم" placeholder="اكتب اسمك الثلاثي" required>
                         <i class="fa-regular fa-user"></i>
                     </div>
                 </div>
@@ -275,19 +277,17 @@ Nou Fel, [18/02/2026 04:34]
                 <div class="input-group">
                     <label>رقم الهاتف</label>
                     <div class="input-wrapper">
-                        <input type="tel" placeholder="05XX XX XX XX" required>
+                        <input type="tel" name="الهاتف" placeholder="05XX XX XX XX" required>
                         <i class="fa-solid fa-phone"></i>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <label>اختر الفوج المناسب:</label>
-
-Nou Fel, [18/02/2026 04:34]
-<div class="groups-container">
+                    <div class="groups-container">
                         
                         <label class="group-option">
-                            <input type="radio" name="fwaj" value="kibar" checked>
+                            <input type="radio" name="الفوج" value="فوج الكبار (16:00)" checked>
                             <div class="group-card">
                                 <div class="group-info">
                                     <h4>فوج الكبار</h4>
@@ -298,7 +298,7 @@ Nou Fel, [18/02/2026 04:34]
                         </label>
 
                         <label class="group-option">
-                            <input type="radio" name="fwaj" value="sighar">
+                            <input type="radio" name="الفوج" value="فوج الصغار (14:00)">
                             <div class="group-card">
                                 <div class="group-info">
                                     <h4>فوج الصغار</h4>
@@ -309,7 +309,7 @@ Nou Fel, [18/02/2026 04:34]
                         </label>
 
                         <label class="group-option">
-                            <input type="radio" name="fwaj" value="layli">
+                            <input type="radio" name="الفوج" value="الفوج الليلي (21:30)">
                             <div class="group-card">
                                 <div class="group-info">
                                     <h4>الفوج الليلي</h4>
@@ -329,34 +329,10 @@ Nou Fel, [18/02/2026 04:34]
             </form>
 
             <div class="footer">
-                <p>لا تفوت الفرصة.. الأماكن محدودة!</p>
+                <p>سيتم التواصل معك لتأكيد الحجز قريباً</p>
             </div>
         </div>
     </div>
-
-    <script>
-        // سكربت بسيط لتجربة الزر
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // هنا يمكنك إضافة كود ربط جوجل شيت لاحقاً
-            
-            // محاكاة نجاح العملية
-            const btn = document.querySelector('.submit-btn');
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = 'تم التسجيل بنجاح <i class="fa-solid fa-check"></i>';
-            btn.style.backgroundColor = '#2ecc71';
-            
-            setTimeout(() => {
-                alert("شكراً لك! تم استلام طلبك للتسجيل في أكاديمية ضياء الدين.");
-                // إعادة الزر لحالته
-                btn.innerHTML = originalText;
-                btn.style.backgroundColor = '#1a5d3a';
-                this.reset();
-            }, 500);
-        });
-    </script>
 
 </body>
 </html>
