@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل في دورة رمضان 2026 - أكاديمية ضياء الدين</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #1b5e20; /* أخضر غامق */
+            --accent-color: #c62828; /* أحمر */
+            --bg-color: #e8f5e9;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 500px;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .header p {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #144a17;
+        }
+
+        .alert {
+            display: none;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1rem;
+            border: 1px solid #c3e6cb;
+        }
+
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* تزيين الخيارات */
+        option {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>استمارة التسجيل</h1>
+            <p>قفزة اللغات | رمضان 2026</p>
+        </div>
+
+        <form name="submit-to-google-sheet" id="registrationForm">
+            <div class="form-group">
+                <label for="FirstName">الاسم</label>
+                <input type="text" id="FirstName" name="FirstName" placeholder="أدخل اسمك" required>
+            </div>
+
+            <div class="form-group">
+                <label for="LastName">اللقب</label>
+                <input type="text" id="LastName" name="LastName" placeholder="أدخل لقبك" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Phone">رقم الهاتف</label>
+                <input type="tel" id="Phone" name="Phone" placeholder="05/06/07..." pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Group">اختر الفوج المناسب</label>
+                <select id="Group" name="Group" required>
+                    <option value="" disabled selected>-- يرجى اختيار الفوج --</option>
+                    <option value="فوج الكبار (14:00 - 16:00)">فوج الكبار (14:00 - 16:00)</option>
+                    <option value="فوج الصغار (16:00 - 17:30)">فوج الصغار (16:00 - 17:30)</option>
+                    <option value="الفوج الليلي - كبار (21:30 - 23:00)">الفوج الليلي - كبار (21:30 - 23:00)</option>
+                </select>
+            </div>
+
+            <button type="submit">حجز المكان الآن</button>
+            <div class="loader" id="loader"></div>
+        </form>
+
+        <div class="alert" id="successMessage">
+            تم التسجيل بنجاح! سنتصل بك قريباً للتأكيد.
+        </div>
+    </div>
+
+    <script>
+        // ! هام: استبدل الرابط أدناه برابط السكربت الخاص بك
+        const scriptURL = 'ضع_رابط_سكربت_قوقل_هنا';
+        
+        const form = document.forms['submit-to-google-sheet'];
+        const successMessage = document.getElementById('successMessage');
+        const loader = document.getElementById('loader');
+        const btn = document.querySelector('button');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // إظهار التحميل وإخفاء الزر
+            loader.style.display = 'block';
+            btn.style.display = 'none';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // إخفاء التحميل وإظهار رسالة النجاح
+                    loader.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    form.reset(); // إفراغ الخانات
+                    
+                    // إعادة الزر بعد 3 ثواني
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                        btn.style.display = 'block';
+                    }, 4000);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+                    loader.style.display = 'none';
+                    btn.style.display = 'block';
+                });
+        });
+    </script>
+
+</body>
+</html>
